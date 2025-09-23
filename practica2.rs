@@ -1,22 +1,21 @@
 use std::io;
 
-fn main(){
+fn main() {
+    println!("Ingrese un número:");
 
-let mut entrada = String::new();
+    let mut e_u = String::new(); 
+    io::stdin()
+        .read_line(&mut e_u)
+        .expect("Fallo en leer la línea"); 
 
-println!("Escribe un numero");
+    let numero: i32 = e_u.trim().parse().expect("Por favor, introduce un número válido"); 
 
-io::stdin()
-	.read_line(&mut entrada )
-	.expect("Error al leer la entrada");
+    println!("Has introducido: {}", numero);
 
-let valor: i16 = entrada.trim().parse().expect("Ingresa un numero valido");
-
-if valor % 2 == 0{
-println!("El numero {valor} es par.");
+    if numero % 2 == 0 {
+        println!("El número {} es PAR", numero);
+    } else {
+        println!("El número {} es IMPAR", numero);
+    }
 }
-else {
-println!("El numero {valor} es impar.");
-}
 
-}
